@@ -29,10 +29,12 @@ public partial class Sequence : Node
 		PackedScene PadResource = GD.Load<PackedScene>("res://pad.tscn");
 		
 		LevelManager levelManager = GDExtensions.GetParentOfType<LevelManager>(this);// GetNode<LevelManager>("LevelManager");
+		GD.Print("get parent: ", levelManager.Name);
 		float noteLength = 60f / BPM;
 		for (int i = 0; i < Goals.Length; i++)
 		{
 			Vector2 pos = levelManager.GetSpawnPos(Goals[i]);
+			GD.Print("spawn at", pos);
 			if (pos == Vector2.Zero) continue;
 			
 			Pad pad = PadResource.Instantiate<Pad>();
@@ -42,7 +44,6 @@ public partial class Sequence : Node
 			pad.Initialize(noteLength, delay);
 			
 			AddChild(pad);
-
 		}
 		// Pad.Initialize(Lifetimes, delay);
 	}

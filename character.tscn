@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpav4q7rcd4jg"]
 
 [ext_resource type="Script" path="res://PlayerController.cs" id="1_5gc2t"]
-[ext_resource type="Texture2D" uid="uid://2id4pomukg5j" path="res://icon.svg" id="1_t1qmh"]
+[ext_resource type="Texture2D" uid="uid://to0swkhldp8w" path="res://circle.png" id="2_a6pkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03b42"]
 size = Vector2(127, 127)
@@ -11,7 +11,7 @@ motion_mode = 1
 script = ExtResource("1_5gc2t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_t1qmh")
+texture = ExtResource("2_a6pkn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

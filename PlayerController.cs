@@ -75,7 +75,6 @@ public partial class PlayerController : CharacterBody2D
 	
 	private void HitCorner()
 	{
-		GD.Print("stop");
 		CurrDirection = Vector2.Zero;
 		Velocity = Vector2.Zero;
 		IsStopped = true;

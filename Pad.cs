@@ -3,6 +3,8 @@ using System;
 
 public partial class Pad : Area2D
 {
+	[Export] Color[] Colors;
+	
 	private float Lifetime;
 	private bool IsReady;
 	
@@ -32,7 +34,7 @@ public partial class Pad : Area2D
 		
 		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
 		sprite.Visible = false;
-		
+		delay = 0;
 		if (delay == 0)
 		{
 			Enable();
@@ -49,6 +51,9 @@ public partial class Pad : Area2D
 		GD.Print("enable");
 		IsReady = true;
 		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
+		Color randColor = Colors[GD.Randi() % Colors.Length];
+		GD.Print(randColor);
+		sprite.Modulate = randColor;
 		sprite.Visible = true;
 		
 		//var timer = GetNode<Timer>("Timer");
