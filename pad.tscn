@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxjy6ofh1rwun"]
+
+[ext_resource type="Script" path="res://Pad.cs" id="1_mlqjd"]
+[ext_resource type="Texture2D" uid="uid://2id4pomukg5j" path="res://icon.svg" id="2_j3utg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nap0d"]
+size = Vector2(126, 122)
+
+[node name="Pad" type="Area2D"]
+script = ExtResource("1_mlqjd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_nap0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.941176, 0, 0, 1)
+texture = ExtResource("2_j3utg")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

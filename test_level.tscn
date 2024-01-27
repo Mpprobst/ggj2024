@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3d7bgxe4qxd7"]
+
+[ext_resource type="PackedScene" uid="uid://dpav4q7rcd4jg" path="res://character.tscn" id="1_kenqi"]
+[ext_resource type="PackedScene" uid="uid://iply0231dwsw" path="res://wall.tscn" id="2_7lvbt"]
+[ext_resource type="PackedScene" uid="uid://ck1kwi0hch7l2" path="res://spawn_point.tscn" id="3_tgj63"]
+[ext_resource type="Script" path="res://LevelManager.cs" id="3_xn2pc"]
+[ext_resource type="Script" path="res://Sequence.cs" id="5_nlg2m"]
+
+[node name="testLevel" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_kenqi")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
+
+[node name="level" type="Node" parent="."]
+
+[node name="wall_r" parent="level" instance=ExtResource("2_7lvbt")]
+position = Vector2(900, 0)
+
+[node name="wall_l" parent="level" instance=ExtResource("2_7lvbt")]
+position = Vector2(-900, 0)
+
+[node name="wall_d" parent="level" instance=ExtResource("2_7lvbt")]
+position = Vector2(0, 900)
+scale = Vector2(15, 1)
+
+[node name="wall_u" parent="level" instance=ExtResource("2_7lvbt")]
+position = Vector2(0, -900)
+scale = Vector2(15, 1)
+
+[node name="LevelManager" type="Node2D" parent="level"]
+script = ExtResource("3_xn2pc")
+
+[node name="Timer" type="Timer" parent="level/LevelManager"]
+one_shot = true
+
+[node name="SpawnPoints" type="Node" parent="level/LevelManager"]
+
+[node name="SpawnPoint0" parent="level/LevelManager/SpawnPoints" instance=ExtResource("3_tgj63")]
+
+[node name="SpawnPoint1" parent="level/LevelManager/SpawnPoints" instance=ExtResource("3_tgj63")]
+position = Vector2(0, -768)
+
+[node name="SpawnPoint2" parent="level/LevelManager/SpawnPoints" instance=ExtResource("3_tgj63")]
+position = Vector2(768, -768)
+
+[node name="SpawnPoint3" parent="level/LevelManager/SpawnPoints" instance=ExtResource("3_tgj63")]
+position = Vector2(768, 0)
+
+[node name="SpawnPoint4" parent="level/LevelManager/SpawnPoints" instance=ExtResource("3_tgj63")]
+position = Vector2(768, 768)
+
+[node name="SpawnPoint5" parent="level/LevelManager/SpawnPoints" instance=ExtResource("3_tgj63")]
+position = Vector2(0, 768)
+
+[node name="SpawnPoint6" parent="level/LevelManager/SpawnPoints" instance=ExtResource("3_tgj63")]
+position = Vector2(-768, 768)
+
+[node name="SpawnPoint7" parent="level/LevelManager/SpawnPoints" instance=ExtResource("3_tgj63")]
+position = Vector2(-768, 0)
+
+[node name="Sequences" type="Node" parent="level/LevelManager"]
+
+[node name="Sequence1" type="Node" parent="level/LevelManager/Sequences"]
+script = ExtResource("5_nlg2m")
+Goals = PackedInt32Array(0)
