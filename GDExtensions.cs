@@ -3,7 +3,7 @@ using System;
 
 public static class GDExtensions
 {
-	public static T GetChildByType<T>(this Node node, bool recursive = true)
+	public static T GetChildOfType<T>(this Node node, bool recursive = true)
 	where T : Node
 	{
 		int childCount = node.GetChildCount();
@@ -14,7 +14,7 @@ public static class GDExtensions
 				return child as T;
 			if (recursive && child.GetChildCount() > 0)
 			{
-				T recursiveResult = child.GetChildByType<T>(true);
+				T recursiveResult = child.GetChildOfType<T>(true);
 				if (recursiveResult != null)
 					return recursiveResult;
 			}

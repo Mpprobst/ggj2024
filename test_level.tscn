@@ -8,7 +8,7 @@
 
 [node name="testLevel" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_kenqi")]
+[node name="Player" parent="." instance=ExtResource("1_kenqi")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.25, 0.25)
@@ -65,3 +65,7 @@ position = Vector2(-768, 0)
 [node name="Sequence1" type="Node" parent="level/LevelManager/Sequences"]
 script = ExtResource("5_nlg2m")
 Goals = PackedInt32Array(0)
+
+[node name="Sequence2" type="Node" parent="level/LevelManager/Sequences"]
+script = ExtResource("5_nlg2m")
+Goals = PackedInt32Array(2, -1, 4)
